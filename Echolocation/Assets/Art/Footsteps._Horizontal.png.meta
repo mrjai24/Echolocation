@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 41b16706337d5ae4f8201d4a2d0c231f
+guid: 9ffbb542f7dfdc343a768170219e6a5f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4999728353021416440
-    second: Footsteps_0
-  - first:
-      213: -6300165327036310905
-    second: Footsteps_1
-  - first:
-      213: -5785339758724122060
-    second: Footsteps_2
-  - first:
-      213: -2782405201900423828
-    second: Footsteps_3
-  - first:
-      213: 7024993143479709342
-    second: Footsteps_4
+      213: -1559289813193723059
+    second: Footsteps._Horizontal_0
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -99,13 +87,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Footsteps_0
+      name: Footsteps._Horizontal_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 401
-        height: 1084
+        y: 568
+        width: 1084
+        height: 397
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -113,8 +101,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afbec0f1082598149bd2a514fdc61e29
-      internalID: 4999728353021416440
+      spriteID: a9a61b930c456824884b42b242332045
+      internalID: -1559289813193723059
       vertices: []
       indices: 
       edges: []
@@ -122,7 +110,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5242843f3020e6442b8a033448a19025
+    spriteID: ed4c747d23eb416488a0bd6491725016
     internalID: 0
     vertices: []
     indices: 
