@@ -182,6 +182,7 @@ Transform:
   - {fileID: 3198710422030615196}
   - {fileID: 2007226012727561685}
   - {fileID: 7377652282641922511}
+  - {fileID: 2582038668682266622}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -247,7 +248,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  fadingTime: 0.5
+  waterWave: {fileID: 4684106841448427941, guid: 00a6fa01d55360141af2516fb8494394,
+    type: 3}
+  waveStartPosition: {fileID: 4118521071809705455}
+  waterMovementDelay: 0.4
+  fadingTime: 1
 --- !u!114 &3250035339774023195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,8 +265,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d2a99824711f848889f41d0192e092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMaxDistance: 100
-  numberMaxReflect: 30
+  lineMaxDistance: 7
+  numberMaxReflect: 5
   lines:
   - {fileID: 5493162606657011854}
   - {fileID: 8979626751414110595}
@@ -416,6 +421,36 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!1 &4118521071809705455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2582038668682266622}
+  m_Layer: 0
+  m_Name: Foot Center Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2582038668682266622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118521071809705455}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.34, y: 0.722, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7867879971816530575}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5105654164861627846
 GameObject:
   m_ObjectHideFlags: 0

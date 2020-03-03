@@ -24,11 +24,12 @@ public class FootEcho : MonoBehaviour
 
     void Start()
     {
+
         foreach(var line in lines)
         {
             lineRenderers.Add(line.GetComponent<LineRenderer>());
         }
-        DrawLasers();
+        DrawNormalLasers();
         StartCoroutine(FadeLines());
     }
 
@@ -37,21 +38,22 @@ public class FootEcho : MonoBehaviour
         
     }
 
-    void DrawLasers()
+    void DrawNormalLasers()
     {
-        for(int i= 0 ; i < lineRenderers.Count; i++ )
+        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        for (int i= 0 ; i < lineRenderers.Count; i++ )
         {
             canShoot = true;
             reflectionCount = 1;
             var currentLine = lineRenderers[i];
             position = lines[i].GetComponent<Transform>().position;
-            float angle = 540f - (i + 1) * 45; 
+            float angle = 180f - (i + 1) * 41; 
             vectDirection = RadianToVector2(angle * Mathf.Deg2Rad) * lines[i].GetComponent<Transform>().transform.parent.gameObject.transform.localScale;
             currentLine.SetPosition(0, position);
 
             while (canShoot)
             {
-                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance);
+                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance,layerMask);
                 if (hit)
                 {
                     
@@ -96,14 +98,14 @@ public class FootEcho : MonoBehaviour
         {
             gradient.SetKeys(
             new GradientColorKey[] { new GradientColorKey(Color.black, 0.2f), new GradientColorKey(Color.gray, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-            new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 0.0f), new GradientAlphaKey(alpha, 0.4f), new GradientAlphaKey(alpha, 1.0f) }
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 1.0f), new GradientAlphaKey(alpha, 0.4f), new GradientAlphaKey(alpha, 0.0f) }
         );
             for (int i = 0; i < lineRenderers.Count; i++)
             {
                 var currentLine = lineRenderers[i];
                 currentLine.colorGradient = gradient;
             }
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
             alpha-= 0.1f;
         }
 

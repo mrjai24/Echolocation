@@ -24,18 +24,23 @@ public class PlayerMovement : MonoBehaviour
     public float stepLength = 10f;
     public string movementDirection;
 
+    public LayerMask groundType;
+    public string currentGroundType = "Normal";
     public int steps = 0;
 
     private bool isMoving = false;
     private bool finishedStep = true;
     private Vector2 stepPosition;
 
+
+    private bool touchingWater = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -79,20 +84,31 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator MakeStep()
     {
+       
         steps++;
         finishedStep = false;
-
         stepPosition = rb.position + movementVect * stepLength;
 
         if(movementDirection == "left" || movementDirection == "right")
             Instantiate(footstepHorizontal, stepPosition, Quaternion.identity);
         else if(movementDirection == "up" || movementDirection == "down")
             Instantiate(footstepVertical, stepPosition, Quaternion.identity);
-
         rb.MovePosition(stepPosition);
 
-        yield return new WaitForSeconds(movementDelay);
+        currentGroundType = GetGroundType(stepPosition);
+        
+
+            yield return new WaitForSeconds(movementDelay);
 
         finishedStep = true;
+    }
+
+    string GetGroundType(Vector2 stepPosition)
+    {
+        if (Physics2D.OverlapCircle(stepPosition, 0.1f, groundType))
+            return "Water";
+        else
+            return "Normal;";
+        
     }
 }

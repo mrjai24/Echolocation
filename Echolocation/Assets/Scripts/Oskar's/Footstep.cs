@@ -5,9 +5,13 @@ using UnityEngine;
 public class Footstep : MonoBehaviour
 {
     public GameObject player;
+    public GameObject waterWave;
+    public GameObject waveStartPosition;
+    public float waterMovementDelay = 0.6f;
+
     public float fadingTime = 0.3f;
     private string movementDirection;
-
+    
     private SpriteRenderer sRenderer;
     private Transform myTransform;
 
@@ -38,6 +42,19 @@ public class Footstep : MonoBehaviour
 
         if (movementDirection == "left")
             myTransform.localScale = new Vector3(-1, myTransform.localScale.y, 1);
+
+        if(player.GetComponent<PlayerMovement>().currentGroundType == "Water")
+        {
+            player.GetComponent<PlayerMovement>().movementDelay = waterMovementDelay;
+            GetComponent<FootEcho>().enabled = false;
+            Instantiate(waterWave, new Vector3(waveStartPosition.transform.position.x,waveStartPosition.transform.position.y), Quaternion.identity);
+        }
+        //if(player.GetComponent<PlayerMovement>().currentGroundType == "Ice")
+        //{
+
+        //}
+        else
+            player.GetComponent<PlayerMovement>().movementDelay = 0.3f;
 
         StartCoroutine(Fade());
         
