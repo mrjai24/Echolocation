@@ -7,7 +7,9 @@ public class Footstep : MonoBehaviour
     public GameObject player;
     public GameObject waterWave;
     public GameObject waveStartPosition;
-    public float waterMovementDelay = 0.6f;
+    public float waterMovementDelay = 0.45f;
+    public float iceMovementDelay = 0.4f;
+    public string currentGroundType;
 
     public float fadingTime = 0.3f;
     private string movementDirection;
@@ -15,9 +17,13 @@ public class Footstep : MonoBehaviour
     private SpriteRenderer sRenderer;
     private Transform myTransform;
 
+    public List<AudioClip> stepSounds;
+
+
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        currentGroundType = player.GetComponent<PlayerMovement>().currentGroundType;
         sRenderer = GetComponent<SpriteRenderer>();
         myTransform = GetComponent<Transform>();
         movementDirection = player.GetComponent<PlayerMovement>().movementDirection;
@@ -43,18 +49,28 @@ public class Footstep : MonoBehaviour
         if (movementDirection == "left")
             myTransform.localScale = new Vector3(-1, myTransform.localScale.y, 1);
 
-        if(player.GetComponent<PlayerMovement>().currentGroundType == "Water")
+        if(currentGroundType == "Water")
         {
             player.GetComponent<PlayerMovement>().movementDelay = waterMovementDelay;
-            GetComponent<FootEcho>().enabled = false;
             Instantiate(waterWave, new Vector3(waveStartPosition.transform.position.x,waveStartPosition.transform.position.y), Quaternion.identity);
+            SoundManager.PlaySound(stepSounds[Random.Range(10, 14)]);
         }
-        //if(player.GetComponent<PlayerMovement>().currentGroundType == "Ice")
-        //{
+        if (currentGroundType == "Ice")
+        {
+            player.GetComponent<PlayerMovement>().movementDelay = iceMovementDelay;
+            SoundManager.PlaySound(stepSounds[Random.Range(5, 9)]);
+        }
+        if (currentGroundType == "Normal")
+        {
 
-        //}
-        else
             player.GetComponent<PlayerMovement>().movementDelay = 0.3f;
+            SoundManager.PlaySound(stepSounds[Random.Range(0,4)]);
+        }
+        if (currentGroundType == "Mud")
+        {
+            player.GetComponent<PlayerMovement>().movementDelay = 0.65f;
+        }
+
 
         StartCoroutine(Fade());
         

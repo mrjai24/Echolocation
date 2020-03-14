@@ -251,8 +251,26 @@ MonoBehaviour:
   waterWave: {fileID: 4684106841448427941, guid: 00a6fa01d55360141af2516fb8494394,
     type: 3}
   waveStartPosition: {fileID: 4118521071809705455}
-  waterMovementDelay: 0.4
+  waterMovementDelay: 0.45
+  iceMovementDelay: 0.15
+  currentGroundType: 
   fadingTime: 1
+  stepSounds:
+  - {fileID: 8300000, guid: a2c201eb73ef84e4496f2826996f9f51, type: 3}
+  - {fileID: 8300000, guid: 8f3611ee0834c71459054f38a9ea15b4, type: 3}
+  - {fileID: 8300000, guid: 8ab55d56223c3cf4a975cb28ceed082a, type: 3}
+  - {fileID: 8300000, guid: 4b0714f3c47606543b928891ce898db3, type: 3}
+  - {fileID: 8300000, guid: 5423a72f02e9c2240b2c62fbb255de45, type: 3}
+  - {fileID: 8300000, guid: b45dfaa77bbbfa740ae44085d27182e3, type: 3}
+  - {fileID: 8300000, guid: 6ca7cf06470fd574882a4544b79183a1, type: 3}
+  - {fileID: 8300000, guid: 11a851f79e7b0fa4d930ea607e48e279, type: 3}
+  - {fileID: 8300000, guid: 30cad8c15d89faa4abd6dfc4a3df48c4, type: 3}
+  - {fileID: 8300000, guid: 9a1f239ad872a004b9aeef5876a83336, type: 3}
+  - {fileID: 8300000, guid: 6d68578893fe4ed4488d617b59c30542, type: 3}
+  - {fileID: 8300000, guid: 5dba7c7160253f14299672c7cda891ea, type: 3}
+  - {fileID: 8300000, guid: 9c39a95eddbfc9d42a5da08bf91f2ce3, type: 3}
+  - {fileID: 8300000, guid: 82a358a19b6e78848b93e6c784012f26, type: 3}
+  - {fileID: 8300000, guid: 1c04d9e535ac3e742829aba1bbc8b340, type: 3}
 --- !u!114 &3250035339774023195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d2a99824711f848889f41d0192e092, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMaxDistance: 7
-  numberMaxReflect: 5
+  lineMaxDistance: 5
+  numberMaxReflect: 2
+  iceVariation: 0.3
   lines:
   - {fileID: 5493162606657011854}
   - {fileID: 8979626751414110595}
@@ -277,6 +296,8 @@ MonoBehaviour:
   - {fileID: 1621749990542912573}
   - {fileID: 8684877115608921405}
   lineRenderers: []
+  shootLines: 0
+  mudMaterial: {fileID: 2100000, guid: 0583b5526ebc450498e9241089228bd5, type: 2}
 --- !u!1 &4051364371849604640
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +339,7 @@ LineRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0

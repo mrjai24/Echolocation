@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     public float stepLength = 10f;
     public string movementDirection;
 
-    public LayerMask groundType;
+    public LayerMask allGroundTypes;
     public string currentGroundType = "Normal";
     public int steps = 0;
 
@@ -88,14 +88,14 @@ public class PlayerMovement : MonoBehaviour
         steps++;
         finishedStep = false;
         stepPosition = rb.position + movementVect * stepLength;
-
+        currentGroundType = GetGroundType(stepPosition);
         if(movementDirection == "left" || movementDirection == "right")
             Instantiate(footstepHorizontal, stepPosition, Quaternion.identity);
         else if(movementDirection == "up" || movementDirection == "down")
             Instantiate(footstepVertical, stepPosition, Quaternion.identity);
         rb.MovePosition(stepPosition);
 
-        currentGroundType = GetGroundType(stepPosition);
+        
         
 
             yield return new WaitForSeconds(movementDelay);
@@ -105,10 +105,29 @@ public class PlayerMovement : MonoBehaviour
 
     string GetGroundType(Vector2 stepPosition)
     {
-        if (Physics2D.OverlapCircle(stepPosition, 0.1f, groundType))
-            return "Water";
+        Collider2D hitCollider = Physics2D.OverlapCircle(stepPosition, 1.0f, allGroundTypes);
+        if(hitCollider)
+        {
+            int hitLayer = hitCollider.gameObject.layer;
+            if(hitLayer == 4)
+            {
+                Debug.Log("Walking on Water");
+                return "Water";
+            }
+            if (hitLayer == 9)
+            {
+                Debug.Log("Walking on Ice");
+                return "Ice";
+            }
+            if (hitLayer == 10)
+            {
+                Debug.Log("Walking on Mud");
+                return "Mud";
+            }
+            else return "Normal";
+        }
         else
-            return "Normal;";
+            return "Normal";
         
     }
 }
