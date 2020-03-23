@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public string currentGroundType = "Normal";
     public int steps = 0;
 
-    private bool isMoving = false;
+    public bool isMoving = false;
     private bool finishedStep = true;
     private Vector2 stepPosition;
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FootEcho : MonoBehaviour
+public class StompEcho : MonoBehaviour
 {
     [SerializeField]
     private int lineMaxDistance = 100;
@@ -20,8 +20,10 @@ public class FootEcho : MonoBehaviour
     public bool shootLines = false;
 
     public Material mudMaterial;
+    public GameObject waterWave;
 
-
+    [Header("Stomp audio clips: 1 - normal; 2 - ice ;3 - mud; 4 - water ")]
+    public List<AudioClip> stompSounds;
 
     private Vector3 position;
     private Vector3 vectDirection;
@@ -32,12 +34,11 @@ public class FootEcho : MonoBehaviour
     private int stepCount;
 
 
-
-
     void Start()
     {
-        currentGroundType = GetComponent<Footstep>().currentGroundType;
-        player =  GameObject.FindWithTag("Player");
+        
+        player = GameObject.FindWithTag("Player");
+        currentGroundType = player.GetComponent<PlayerMovement>().currentGroundType;
         stepCount = player.GetComponent<PlayerMovement>().steps;
         switch (currentGroundType)
         {
@@ -47,6 +48,7 @@ public class FootEcho : MonoBehaviour
                 {
                     lineRenderers.Add(line.GetComponent<LineRenderer>());
                 }
+                SoundManager.PlaySound(stompSounds[0]);
                 DrawNormalLasers();
                 StartCoroutine(FadeLines());
                 break;
@@ -55,6 +57,7 @@ public class FootEcho : MonoBehaviour
                 {
                     lineRenderers.Add(line.GetComponent<LineRenderer>());
                 }
+                SoundManager.PlaySound(stompSounds[1]);
                 DrawIceLasers();
                 StartCoroutine(FadeLines());
                 break;
@@ -63,11 +66,18 @@ public class FootEcho : MonoBehaviour
                 {
                     lineRenderers.Add(line.GetComponent<LineRenderer>());
                 }
+                SoundManager.PlaySound(stompSounds[2]);
                 DrawMudLasers();
                 StartCoroutine(FadeLines());
                 break;
+            case "Water":
+                SoundManager.PlaySound(stompSounds[3]);
+                Instantiate(waterWave, transform.position,Quaternion.identity);
+                break;
+
         }
-            
+        Destroy(this.gameObject,3f);
+
     }
 
 
@@ -75,20 +85,20 @@ public class FootEcho : MonoBehaviour
     void DrawNormalLasers()
     {
         var layerMask = 1 << LayerMask.NameToLayer("Wall");
-        for (int i= 0 ; i < lineRenderers.Count; i++ )
+        for (int i = 0; i < lineRenderers.Count; i++)
         {
-            
+
             canShoot = true;
             reflectionCount = 1;
             var currentLine = lineRenderers[i];
             position = lines[i].GetComponent<Transform>().position;
-            float angle = 180f - (i + 1) * 41; 
+            float angle = 180f - (i + 1) * 28;
             vectDirection = RadianToVector2(angle * Mathf.Deg2Rad) * lines[i].GetComponent<Transform>().transform.parent.gameObject.transform.localScale;
             currentLine.SetPosition(0, position);
 
             while (canShoot)
             {
-                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance,layerMask);
+                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance, layerMask);
                 if (hit)
                 {
                     reflectionCount++;
@@ -107,9 +117,9 @@ public class FootEcho : MonoBehaviour
                 if (reflectionCount > numberMaxReflect)
                     canShoot = false;
             }
-           
+
         }
-        
+
     }
 
     void DrawIceLasers()
@@ -121,7 +131,7 @@ public class FootEcho : MonoBehaviour
             reflectionCount = 1;
             var currentLine = lineRenderers[i];
             position = lines[i].GetComponent<Transform>().position;
-            float angle = 180f - (i + 1) * 41;
+            float angle = 180f - (i + 1) * 31;
             vectDirection = RadianToVector2(angle * Mathf.Deg2Rad) * lines[i].GetComponent<Transform>().transform.parent.gameObject.transform.localScale;
             currentLine.SetPosition(0, position);
 
@@ -138,15 +148,15 @@ public class FootEcho : MonoBehaviour
 
                     float distance = Vector2.Distance(prevPos, endPos);
                     int iceDivideCount = (int)(distance / iceVariation);
-                    for (int j = 1; j<= iceDivideCount; j++)
+                    for (int j = 1; j <= iceDivideCount; j++)
                     {
-                        Vector2 midPos = new Vector2 (prevPos.x + (float)j / iceDivideCount * (hit.point.x - prevPos.x),prevPos.y + (float)j / iceDivideCount * (hit.point.y - prevPos.y));
+                        Vector2 midPos = new Vector2(prevPos.x + (float)j / iceDivideCount * (hit.point.x - prevPos.x), prevPos.y + (float)j / iceDivideCount * (hit.point.y - prevPos.y));
                         Vector2 midPosLocal = new Vector2(prevPosLocal.x + (float)j / iceDivideCount * (endPosLocal.x - prevPosLocal.x), prevPosLocal.y + (float)j / iceDivideCount * (endPosLocal.y - prevPosLocal.y));
 
                         Vector2 perpVect = iceVariation * Vector2.Perpendicular(midPosLocal.normalized);
                         Vector2 offsetVect;
 
-                        if (j%2 ==0 )
+                        if (j % 2 == 0)
                             offsetVect = midPos + perpVect;
                         else
                             offsetVect = midPos - perpVect;
@@ -159,13 +169,13 @@ public class FootEcho : MonoBehaviour
                     vectDirection = Vector3.Reflect(vectDirection, hit.normal);
                     position = (Vector2)vectDirection.normalized + hit.point;
                     currentLine.SetPosition(reflectionCount - 1, hit.point);
-                    
+
                 }
                 else
                 {
                     Vector2 prevPos = currentLine.GetPosition(reflectionCount - 1);
                     Vector2 prevPosLocal = prevPos + (-prevPos);
-                    Vector2 endPos =  position + (vectDirection * lineMaxDistance);
+                    Vector2 endPos = position + (vectDirection * lineMaxDistance);
                     Vector2 endPosLocal = new Vector2(endPos.x - prevPos.x, endPos.y - prevPos.y);
 
                     float distance = Vector2.Distance(prevPos, endPos);
@@ -190,7 +200,7 @@ public class FootEcho : MonoBehaviour
                     }
                     canShoot = false;
                 }
-                if (reflectionCount > numberMaxReflect*10)
+                if (reflectionCount > numberMaxReflect)
                     canShoot = false;
             }
 
@@ -207,7 +217,7 @@ public class FootEcho : MonoBehaviour
             reflectionCount = 1;
             var currentLine = lineRenderers[i];
             position = lines[i].GetComponent<Transform>().position;
-            float angle = 180f - (i + 1) * 41;
+            float angle = 180f - (i + 1) * 31;
             vectDirection = RadianToVector2(angle * Mathf.Deg2Rad) * lines[i].GetComponent<Transform>().transform.parent.gameObject.transform.localScale;
             currentLine.SetPosition(0, position);
             currentLine.material = mudMaterial;
@@ -217,7 +227,7 @@ public class FootEcho : MonoBehaviour
 
             while (canShoot)
             {
-                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance, layerMask);
+                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance/2, layerMask);
                 if (hit)
                 {
                     reflectionCount++;
@@ -230,10 +240,10 @@ public class FootEcho : MonoBehaviour
                 {
                     reflectionCount++;
                     currentLine.positionCount = reflectionCount;
-                    currentLine.SetPosition(reflectionCount - 1, position + (vectDirection.normalized * lineMaxDistance));
+                    currentLine.SetPosition(reflectionCount - 1, position + (vectDirection.normalized * lineMaxDistance/2));
                     canShoot = false;
                 }
-                if (reflectionCount > numberMaxReflect)
+                if (reflectionCount > numberMaxReflect/2)
                     canShoot = false;
             }
 
@@ -265,12 +275,12 @@ public class FootEcho : MonoBehaviour
                     var currentLine = lineRenderers[i];
                     currentLine.colorGradient = gradient;
                 }
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.3f);
                 alpha -= 0.1f;
             }
 
         }
-        else if(currentGroundType == "Ice")
+        else if (currentGroundType == "Ice")
         {
             gradient.SetKeys(
                 new GradientColorKey[] { new GradientColorKey(iceColor, 0f), new GradientColorKey(iceColor, 0.0f), new GradientColorKey(iceColor, 1.0f) },
@@ -289,12 +299,12 @@ public class FootEcho : MonoBehaviour
                 }
                 if (stepCount % 2 == 0)
                 {
-                    yield return new WaitForSeconds(0.05f);
+                    yield return new WaitForSeconds(0.2f);
                     alpha -= 0.2f;
                 }
                 else
                 {
-                    yield return new WaitForSeconds(0.02f);
+                    yield return new WaitForSeconds(0.2f);
                     alpha -= 0.3f;
                 }
 
@@ -317,7 +327,7 @@ public class FootEcho : MonoBehaviour
                     var currentLine = lineRenderers[i];
                     currentLine.colorGradient = gradient;
                 }
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.3f);
                 alpha -= 0.1f;
             }
 
