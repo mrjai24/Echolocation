@@ -15,7 +15,7 @@ TrueTypeFontImporter:
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 0
-  useLegacyBoundsCalculation: 0
+  useLegacyBoundsCalculation: 1
   shouldRoundAdvanceValue: 0
   userData: 
   assetBundleName: 
