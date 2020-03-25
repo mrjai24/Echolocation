@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
        
         steps++;
         finishedStep = false;
-        stepPosition = rb.position + movementVect * stepLength;
+        stepPosition = (Vector2) transform.position + movementVect * stepLength;
         currentGroundType = GetGroundType(stepPosition);
         if(movementDirection == "left" || movementDirection == "right")
             Instantiate(footstepHorizontal, stepPosition, Quaternion.identity);
@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     string GetGroundType(Vector2 stepPosition)
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(stepPosition, 1.0f, allGroundTypes);
+        Collider2D hitCollider = Physics2D.OverlapCircle(stepPosition, 0.5f, allGroundTypes);
         if(hitCollider)
         {
             int hitLayer = hitCollider.gameObject.layer;

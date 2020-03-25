@@ -27,9 +27,11 @@ public class FootEcho : MonoBehaviour
     private Vector3 vectDirection;
     private int reflectionCount;
     private bool canShoot = true;
+    private bool doorhit;
     private string currentGroundType;
     private GameObject player;
     private int stepCount;
+    private GameObject doorObject;
 
 
 
@@ -74,7 +76,7 @@ public class FootEcho : MonoBehaviour
 
     void DrawNormalLasers()
     {
-        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        var layerMask = LayerMask.GetMask("Wall","Door");
         for (int i= 0 ; i < lineRenderers.Count; i++ )
         {
             
@@ -96,6 +98,10 @@ public class FootEcho : MonoBehaviour
                     vectDirection = Vector3.Reflect(vectDirection, hit.normal);
                     position = (Vector2)vectDirection.normalized + hit.point;
                     currentLine.SetPosition(reflectionCount - 1, hit.point);
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Door")){
+                        doorhit = true;
+                        doorObject = hit.transform.gameObject;
+                    }
                 }
                 else
                 {
@@ -108,6 +114,10 @@ public class FootEcho : MonoBehaviour
                     canShoot = false;
             }
            
+        }
+        if (doorhit)
+        {
+            doorObject.GetComponent<Door>().ShowDoor(Vector3.Distance(transform.position, doorObject.transform.position));
         }
         
     }

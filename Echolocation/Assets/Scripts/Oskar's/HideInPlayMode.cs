@@ -8,12 +8,24 @@ public class HideInPlayMode : MonoBehaviour
 {
     void Start()
     {
-        if (EditorApplication.isPlayingOrWillChangePlaymode)
+        if (this.gameObject.name == "Walls" )
         {
-            GetComponent<TilemapRenderer>().enabled = false;
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                GetComponent<Tilemap>().color = new Color(0, 0, 0, 1);
+            }
+            else
+            GetComponent<Tilemap>().color = new Color(255, 255, 255, 1);
         }
         else
-            GetComponent<TilemapRenderer>().enabled = true;
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                GetComponent<TilemapRenderer>().enabled = false;
+            }
+            else
+                GetComponent<TilemapRenderer>().enabled = true;
+        }
 
     }
 }
