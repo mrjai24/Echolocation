@@ -1,0 +1,485 @@
+fileFormatVersion: 2
+guid: 78ab0d0e02b28394db597ff165e7f8b7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5917948177969843659
+    second: belfllower_anim_0
+  - first:
+      213: -8461306288687561147
+    second: belfllower_anim_1
+  - first:
+      213: -1412554901476869067
+    second: belfllower_anim_2
+  - first:
+      213: -2111057103773978150
+    second: belfllower_anim_3
+  - first:
+      213: 3838499850149813342
+    second: belfllower_anim_4
+  - first:
+      213: -8300704605043019543
+    second: belfllower_anim_5
+  - first:
+      213: 7873567454419650064
+    second: belfllower_anim_6
+  - first:
+      213: 5355154544692736104
+    second: belfllower_anim_7
+  - first:
+      213: -6220769681886123617
+    second: belfllower_anim_8
+  - first:
+      213: -95030373599425682
+    second: belfllower_anim_9
+  - first:
+      213: -4827690312965806212
+    second: belfllower_anim_10
+  - first:
+      213: -6057136980275809768
+    second: belfllower_anim_11
+  - first:
+      213: 7165984953544605422
+    second: belfllower_anim_12
+  - first:
+      213: -1952967696461212398
+    second: belfllower_anim_13
+  - first:
+      213: 5282150822647839296
+    second: belfllower_anim_14
+  - first:
+      213: -2130003439068192953
+    second: belfllower_anim_15
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 2
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: belfllower_anim_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1967
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f5ab8d2f5ab744fa63f67a7008d11a
+      internalID: 5917948177969843659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1967
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d708054bd095c2c4ca487a72181c616e
+      internalID: -8461306288687561147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1967
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56137d3915ce7de41b49ab810f5fdb7e
+      internalID: -1412554901476869067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1967
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60027da3e681c4488fd473bfa6ef1ae
+      internalID: -2111057103773978150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1455
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4dd5e121b6f88c4a879f52e2e451aad
+      internalID: 3838499850149813342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1455
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e414cc7e2f6bdb14a948276001c25667
+      internalID: -8300704605043019543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1455
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94a05889dcbca5240b2d055d1d498c56
+      internalID: 7873567454419650064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1455
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375b4b3bad347424ebf6f77c849b701c
+      internalID: 5355154544692736104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 943
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac41b97cb2f0064a9188385ac7b9d78
+      internalID: -6220769681886123617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 943
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4caefb13cb0b3429b11730ede138bb
+      internalID: -95030373599425682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 943
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72823a68deb1b1d4d87c136ec70f32ff
+      internalID: -4827690312965806212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 943
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c94fe88aab9c8a64ca658d84863c272d
+      internalID: -6057136980275809768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 431
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6193e4f74cff181439eda5f8637a0be1
+      internalID: 7165984953544605422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 431
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398f62780f26bec45998208d9d0459a5
+      internalID: -1952967696461212398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 431
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07b6f5fefd29a042ad79dc204cf86e3
+      internalID: 5282150822647839296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: belfllower_anim_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 431
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63fdcb9dca6ab6c429f065dc76261c8c
+      internalID: -2130003439068192953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 732bd5cfb5017384b912c07709609a03
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

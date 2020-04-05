@@ -69,6 +69,7 @@ public class Footstep : MonoBehaviour
         if (currentGroundType == "Mud")
         {
             player.GetComponent<PlayerMovement>().movementDelay = 0.65f;
+            SoundManager.PlaySound(stepSounds[Random.Range(15, 19)]);
         }
 
 

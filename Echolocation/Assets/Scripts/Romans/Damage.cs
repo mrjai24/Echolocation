@@ -7,6 +7,11 @@ public class Damage : MonoBehaviour
 {
     [SerializeField]
     private string thisLevel;
+
+    private void Start()
+    {
+        thisLevel = SceneManager.GetActiveScene().name;
+    }
     private void OnTriggerEnter2D(Collider2D col)
     {
         Debug.Log("Killed");

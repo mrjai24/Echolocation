@@ -28,6 +28,7 @@ public class FootEcho : MonoBehaviour
     private int reflectionCount;
     private bool canShoot = true;
     private bool doorhit;
+    private List<int> trapLineIndex = new List<int>();
     private string currentGroundType;
     private GameObject player;
     private int stepCount;
@@ -76,7 +77,7 @@ public class FootEcho : MonoBehaviour
 
     void DrawNormalLasers()
     {
-        var layerMask = LayerMask.GetMask("Wall","Door");
+        var layerMask = LayerMask.GetMask("Wall","Door","Trap");
         for (int i= 0 ; i < lineRenderers.Count; i++ )
         {
             
@@ -101,6 +102,11 @@ public class FootEcho : MonoBehaviour
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Door")){
                         doorhit = true;
                         doorObject = hit.transform.gameObject;
+                    }
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
+                    {
+                        trapLineIndex.Add(i);
+                        canShoot = false;
                     }
                 }
                 else
@@ -255,24 +261,33 @@ public class FootEcho : MonoBehaviour
     IEnumerator FadeLines()
     {
         float alpha = 1.0f;
+
         Gradient gradient = new Gradient();
+        Gradient trapGradient = new Gradient();
         Color iceColor = new Color(0, 179, 239);
+        Color normalColor = new Color(255, 255, 255);
+        Color trapColor = new Color(255, 0, 0);
 
         if (currentGroundType == "Normal")
         {
-            gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(Color.black, 0.2f), new GradientColorKey(Color.gray, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-                new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 0.0f), new GradientAlphaKey(alpha, 0.5f), new GradientAlphaKey(alpha, 1.0f) }
-            );
             while (true)
             {
                 gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(Color.black, 0.2f), new GradientColorKey(Color.gray, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                new GradientColorKey[] { new GradientColorKey(normalColor, 0.2f), new GradientColorKey(normalColor, 0.0f), new GradientColorKey(normalColor, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 1.0f), new GradientAlphaKey(alpha, 0.4f), new GradientAlphaKey(alpha, 0.0f) }
             );
                 for (int i = 0; i < lineRenderers.Count; i++)
                 {
                     var currentLine = lineRenderers[i];
+                    if(trapLineIndex.Contains(i))
+                    {
+                        trapGradient.SetKeys(
+                            new GradientColorKey[] { new GradientColorKey(trapColor, 0.2f), new GradientColorKey(trapColor, 0.0f), new GradientColorKey(trapColor, 1.0f) },
+                            new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 1.0f), new GradientAlphaKey(alpha, 0.4f), new GradientAlphaKey(alpha, 0.0f) }
+                        );
+                        currentLine.colorGradient = trapGradient;
+                    }
+                    else
                     currentLine.colorGradient = gradient;
                 }
                 yield return new WaitForSeconds(0.05f);
@@ -282,10 +297,6 @@ public class FootEcho : MonoBehaviour
         }
         else if(currentGroundType == "Ice")
         {
-            gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(iceColor, 0f), new GradientColorKey(iceColor, 0.0f), new GradientColorKey(iceColor, 1.0f) },
-                new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 0.0f), new GradientAlphaKey(alpha, 0.5f), new GradientAlphaKey(alpha, 1.0f) }
-            );
             while (true)
             {
                 gradient.SetKeys(
@@ -312,10 +323,6 @@ public class FootEcho : MonoBehaviour
         }
         else if (currentGroundType == "Mud")
         {
-            gradient.SetKeys(
-                new GradientColorKey[] { new GradientColorKey(Color.black, 0.2f), new GradientColorKey(Color.gray, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-                new GradientAlphaKey[] { new GradientAlphaKey(alpha - 0.5f, 0.0f), new GradientAlphaKey(alpha, 0.5f), new GradientAlphaKey(alpha, 1.0f) }
-            );
             while (true)
             {
                 gradient.SetKeys(

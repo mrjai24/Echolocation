@@ -59,7 +59,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 4732815527015622135}
   - component: {fileID: 4732815527015622129}
   - component: {fileID: 4732815527015622128}
+  - component: {fileID: 436235937895408019}
   m_Layer: 2
   m_Name: Player
   m_TagString: Player
@@ -132,7 +133,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
@@ -160,8 +161,8 @@ MonoBehaviour:
   footstepHorizontal: {fileID: 1764198908361832179, guid: f98e6a6d1482dd942acad2786b8e0663,
     type: 3}
   movementDelay: 0.3
-  stepLength: 1
-  movementDirection: 
+  stepLength: 0.5
+  movementDirection: right
   allGroundTypes:
     serializedVersion: 2
     m_Bits: 1552
@@ -250,7 +251,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.2
+  m_Radius: 0.5
 --- !u!114 &4732815527015622128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +266,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stompWaitTime: 3
   stomp: {fileID: 356899145707221654, guid: f9f4bc1c280f83b4598e4af06f0c1679, type: 3}
+--- !u!114 &436235937895408019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4732815527015622139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1e4b6b6ee4f7a4da13386eab1edaeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bellFlowers: 0
+  bellFlowerSound: {fileID: 8300000, guid: 50fa3a7c8cc1f4b49b381b1a484c5b3a, type: 3}

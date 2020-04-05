@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     string GetGroundType(Vector2 stepPosition)
     {
-        Collider2D hitCollider = Physics2D.OverlapCircle(stepPosition, 0.5f, allGroundTypes);
+        Collider2D hitCollider = Physics2D.OverlapCircle(stepPosition, 0.2f, allGroundTypes);
         if(hitCollider)
         {
             int hitLayer = hitCollider.gameObject.layer;

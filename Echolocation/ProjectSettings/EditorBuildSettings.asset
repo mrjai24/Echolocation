@@ -17,4 +17,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Romans Scenes/Level 2.unity
     guid: 778dbfa095b22af4cb7a37ebb1ed5912
+  - enabled: 1
+    path: Assets/Scenes/Actual Levels/Level1.unity
+    guid: bf8912522b7fdd948aee4525d61e4865
+  - enabled: 1
+    path: Assets/Scenes/Actual Levels/Level2.unity
+    guid: edadc2cf926ecc24e80c220817fc4f0b
+  - enabled: 1
+    path: Assets/Scenes/Actual Levels/Level3.unity
+    guid: 9cb590dcdb89c4f4296067ecbfad140d
+  - enabled: 1
+    path: Assets/Scenes/Actual Levels/Level4.unity
+    guid: 82d220dbbdf91104aa9270c9d04551dc
+  - enabled: 1
+    path: Assets/Scenes/Actual Levels/Level5.unity
+    guid: 59131cc1801944a46810145fba7b1cbf
+  - enabled: 1
+    path: Assets/Scenes/Actual Levels/Level6.unity
+    guid: a755b7eb967d20844ac6581d7a77d5ba
   m_configObjects: {}
