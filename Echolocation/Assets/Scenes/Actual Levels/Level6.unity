@@ -120,7 +120,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &672939069
+=======
+--- !u!1001 &646351125
+>>>>>>> b4c4e44f80c08dbbc1c71e9a90e7c60c90fbb83b
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -170,7 +174,11 @@ PrefabInstance:
     - target: {fileID: 155373799030701421, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
         type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 1
+=======
+      value: 9
+>>>>>>> b4c4e44f80c08dbbc1c71e9a90e7c60c90fbb83b
       objectReference: {fileID: 0}
     - target: {fileID: 155373799030701421, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
         type: 3}
