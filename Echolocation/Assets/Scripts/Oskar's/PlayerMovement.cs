@@ -94,12 +94,7 @@ public class PlayerMovement : MonoBehaviour
         else if(movementDirection == "up" || movementDirection == "down")
             Instantiate(footstepVertical, stepPosition, Quaternion.identity);
         rb.MovePosition(stepPosition);
-
-        
-        
-
             yield return new WaitForSeconds(movementDelay);
-
         finishedStep = true;
     }
 

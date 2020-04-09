@@ -199,9 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f4522b6a57d9b448a520dff69a6ae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineMaxDistance: 20
-  numberMaxReflect: 5
-  iceVariation: 1
+  lineMaxDistance: 30
+  numberMaxReflect: 20
+  iceVariation: 0.3
   lines:
   - {fileID: 6414902453319304767}
   - {fileID: 4070081111283696437}

@@ -29,10 +29,12 @@ public class StompEcho : MonoBehaviour
     private Vector3 vectDirection;
     private int reflectionCount;
     private bool canShoot = true;
+    private bool doorhit;
     private List<int> trapLineIndex = new List<int>();
     private string currentGroundType;
     private GameObject player;
     private int stepCount;
+    private GameObject doorObject;
 
 
     void Start()
@@ -85,7 +87,7 @@ public class StompEcho : MonoBehaviour
 
     void DrawNormalLasers()
     {
-        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        var layerMask = LayerMask.GetMask("Wall", "Door", "Trap", "Enemy");
         for (int i = 0; i < lineRenderers.Count; i++)
         {
 
@@ -107,11 +109,21 @@ public class StompEcho : MonoBehaviour
                     vectDirection = Vector3.Reflect(vectDirection, hit.normal);
                     position = (Vector2)vectDirection.normalized + hit.point;
                     currentLine.SetPosition(reflectionCount - 1, hit.point);
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+                    {
+                        doorhit = true;
+                        doorObject = hit.transform.gameObject;
+                    }
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
+                    }
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
                     {
                         trapLineIndex.Add(i);
                         canShoot = false;
                     }
+
                 }
                 else
                 {
@@ -125,12 +137,16 @@ public class StompEcho : MonoBehaviour
             }
 
         }
+        if (doorhit)
+        {
+            doorObject.GetComponent<Door>().ShowDoor(Vector3.Distance(transform.position, doorObject.transform.position));
+        }
 
     }
 
     void DrawIceLasers()
     {
-        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        var layerMask = LayerMask.GetMask("Wall", "Enemy");
         for (int i = 0; i < lineRenderers.Count; i++)
         {
             canShoot = true;
@@ -151,6 +167,11 @@ public class StompEcho : MonoBehaviour
 
                     Vector2 endPos = hit.point;
                     Vector2 endPosLocal = new Vector2(endPos.x - prevPos.x, endPos.y - prevPos.y);
+
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
+                    }
 
                     float distance = Vector2.Distance(prevPos, endPos);
                     int iceDivideCount = (int)(distance / iceVariation);
@@ -215,7 +236,7 @@ public class StompEcho : MonoBehaviour
     }
     void DrawMudLasers()
     {
-        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        var layerMask = LayerMask.GetMask("Wall", "Enemy");
         for (int i = 0; i < lineRenderers.Count; i++)
         {
 
@@ -241,6 +262,10 @@ public class StompEcho : MonoBehaviour
                     vectDirection = Vector3.Reflect(vectDirection, hit.normal);
                     position = (Vector2)vectDirection.normalized + hit.point;
                     currentLine.SetPosition(reflectionCount - 1, hit.point);
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
+                    }
                 }
                 else
                 {

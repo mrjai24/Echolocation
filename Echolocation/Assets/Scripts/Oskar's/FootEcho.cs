@@ -77,7 +77,7 @@ public class FootEcho : MonoBehaviour
 
     void DrawNormalLasers()
     {
-        var layerMask = LayerMask.GetMask("Wall","Door","Trap");
+        var layerMask = LayerMask.GetMask("Wall","Door","Trap","Enemy");
         for (int i= 0 ; i < lineRenderers.Count; i++ )
         {
             
@@ -102,6 +102,9 @@ public class FootEcho : MonoBehaviour
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Door")){
                         doorhit = true;
                         doorObject = hit.transform.gameObject;
+                    }
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy")){
+                        hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
                     }
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
                     {
@@ -130,7 +133,7 @@ public class FootEcho : MonoBehaviour
 
     void DrawIceLasers()
     {
-        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        var layerMask = LayerMask.GetMask("Wall", "Enemy");
         for (int i = 0; i < lineRenderers.Count; i++)
         {
             canShoot = true;
@@ -151,6 +154,11 @@ public class FootEcho : MonoBehaviour
 
                     Vector2 endPos = hit.point;
                     Vector2 endPosLocal = new Vector2(endPos.x - prevPos.x, endPos.y - prevPos.y);
+
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
+                    }
 
                     float distance = Vector2.Distance(prevPos, endPos);
                     int iceDivideCount = (int)(distance / iceVariation);
@@ -215,7 +223,7 @@ public class FootEcho : MonoBehaviour
     }
     void DrawMudLasers()
     {
-        var layerMask = 1 << LayerMask.NameToLayer("Wall");
+        var layerMask = LayerMask.GetMask("Wall", "Enemy");
         for (int i = 0; i < lineRenderers.Count; i++)
         {
 
@@ -241,6 +249,10 @@ public class FootEcho : MonoBehaviour
                     vectDirection = Vector3.Reflect(vectDirection, hit.normal);
                     position = (Vector2)vectDirection.normalized + hit.point;
                     currentLine.SetPosition(reflectionCount - 1, hit.point);
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
+                        hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
+                    }
                 }
                 else
                 {
