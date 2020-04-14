@@ -238,8 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596e07780be46c345ab09535470a6dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Level 1
-  savedLevel: Level 2
+  firstLevel: Level1
+  savedLevel: Level2
   options: 
   credits: Credits
   shoeMenu: 
