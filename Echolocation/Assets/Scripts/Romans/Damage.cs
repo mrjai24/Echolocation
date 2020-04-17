@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Damage : MonoBehaviour
 {
+    public AudioClip deathSound;
+
     [SerializeField]
     private string thisLevel;
 
@@ -18,6 +20,7 @@ public class Damage : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene(thisLevel);
+            SoundManager.PlaySound(deathSound);
         }
     }
 }

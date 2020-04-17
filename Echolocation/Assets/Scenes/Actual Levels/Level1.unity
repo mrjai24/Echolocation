@@ -201,11 +201,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
-    - target: {fileID: 4737221873245503146, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 155373799030701421, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -309,6 +304,11 @@ PrefabInstance:
     - target: {fileID: 155373799030701421, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4737221873245503146, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4737221871758018721, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
@@ -1879,11 +1879,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 255
       objectReference: {fileID: 0}
-    - target: {fileID: 6205501567060055752, guid: 8b2f1031c80216c409905b69f0d564fa,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6205501568420508742, guid: 8b2f1031c80216c409905b69f0d564fa,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -1928,6 +1923,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205501567060055752, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4448236181719923875, guid: 8b2f1031c80216c409905b69f0d564fa,
         type: 3}
@@ -2074,6 +2074,11 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[0].first.y
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b2f1031c80216c409905b69f0d564fa, type: 3}
 --- !u!1001 &1119893084
