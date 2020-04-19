@@ -19,8 +19,8 @@ public class Damage : MonoBehaviour
         Debug.Log("Killed");
         if (col.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(thisLevel);
             SoundManager.PlaySound(deathSound);
+            SceneManager.LoadScene(thisLevel);
         }
     }
 }

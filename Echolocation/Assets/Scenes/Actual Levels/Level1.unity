@@ -120,6 +120,80 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &5763640
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7973913523255887069, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887069, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_TagString
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7973913523255887071, guid: 52e439cb8ddcc9c43b55e3000b93c03b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52e439cb8ddcc9c43b55e3000b93c03b, type: 3}
 --- !u!1001 &211762771
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,6 +260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855098101831006057, guid: 44c5cf8d424fe7a4c94a593a4a417f52,
+        type: 3}
+      propertyPath: m_TagString
+      value: SoundManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c5cf8d424fe7a4c94a593a4a417f52, type: 3}

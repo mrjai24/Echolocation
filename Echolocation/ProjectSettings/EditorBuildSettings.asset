@@ -11,12 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 3222b26781ad0a64e80f2f099fa210d7
-  - enabled: 1
-    path: Assets/Scenes/Romans Scenes/Level 1.unity
-    guid: 126bfa7e743658e4c98eaa43160aa885
-  - enabled: 1
-    path: Assets/Scenes/Romans Scenes/Level 2.unity
-    guid: 778dbfa095b22af4cb7a37ebb1ed5912
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Actual Levels/Level1.unity
     guid: bf8912522b7fdd948aee4525d61e4865
