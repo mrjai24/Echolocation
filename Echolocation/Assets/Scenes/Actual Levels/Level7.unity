@@ -4288,6 +4288,18 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Level8
       objectReference: {fileID: 0}
+    - target: {fileID: 3263664156924071930, guid: 2fa79ec8d65fbd840a65e5556e118389,
+        type: 3}
+      propertyPath: gameStatusUI
+      value: 
+      objectReference: {fileID: 155373799030701409, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+    - target: {fileID: 3263664156924071930, guid: 2fa79ec8d65fbd840a65e5556e118389,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 2923347981460848169, guid: 4f6e8b3ae6d5c774085e4947b0beb4b7,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa79ec8d65fbd840a65e5556e118389, type: 3}
 --- !u!114 &1235973003 stripped

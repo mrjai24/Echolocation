@@ -253,7 +253,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5651b4e61af362040943e3915f1c3b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
+  gameStatusUI: {fileID: 0}
+  loseScreen: {fileID: 0}
   thisLevel: 
+  mainMenu: Main Menu
 --- !u!1 &6205501566941727330
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,7 +5890,7 @@ Tilemap:
   - m_RefCount: 323
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 0.49803922}
+  m_Color: {r: 255, g: 255, b: 255, a: 1}
   m_Origin: {x: -26, y: -35, z: 0}
   m_Size: {x: 98, y: 49, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}

@@ -22,7 +22,7 @@ public class SaveManager
             FileStream ofstream = new FileStream(path, FileMode.Open);
             SaveData data = formatter.Deserialize(ofstream) as SaveData;
             ofstream.Close();
-            Debug.Log("Loaded " + data);
+            Debug.Log("Loaded " + path);
             return data;
         }
         else

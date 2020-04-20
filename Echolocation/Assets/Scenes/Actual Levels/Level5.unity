@@ -147,8 +147,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282681036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.6699996, y: -3.5640006, z: 0}
-  m_LocalScale: {x: 6.34434, y: 18.95565, z: 15.474}
+  m_LocalPosition: {x: 5.6699996, y: -3.564, z: 0}
+  m_LocalScale: {x: 6.34434, y: 23.081955, z: 15.474}
   m_Children: []
   m_Father: {fileID: 1861754005}
   m_RootOrder: 3
@@ -4073,6 +4073,31 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[28].first.y
       value: -4
       objectReference: {fileID: 0}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: thisLevel
+      value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: gameStatusUI
+      value: 
+      objectReference: {fileID: 409081662}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 409081660}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: mainMenu
+      value: Main Menu
+      objectReference: {fileID: 0}
     - target: {fileID: 4448236181719923875, guid: 8b2f1031c80216c409905b69f0d564fa,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -4232,31 +4257,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Tiles.Array.data[4].first.y
       value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
-        type: 3}
-      propertyPath: thisLevel
-      value: Level5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
-        type: 3}
-      propertyPath: deathSound
-      value: 
-      objectReference: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
-    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
-        type: 3}
-      propertyPath: gameStatusUI
-      value: 
-      objectReference: {fileID: 409081662}
-    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
-        type: 3}
-      propertyPath: loseScreen
-      value: 
-      objectReference: {fileID: 409081660}
-    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
-        type: 3}
-      propertyPath: mainMenu
-      value: Main Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b2f1031c80216c409905b69f0d564fa, type: 3}
@@ -4561,8 +4561,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100825119}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.32, y: -3.5640006, z: 0}
-  m_LocalScale: {x: 6.34434, y: 18.95565, z: 15.474}
+  m_LocalPosition: {x: -3.32, y: -3.575, z: 0}
+  m_LocalScale: {x: 6.34434, y: 21.277908, z: 15.474}
   m_Children: []
   m_Father: {fileID: 1861754005}
   m_RootOrder: 2
@@ -5140,6 +5140,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4744323882404720635, guid: 139ceac896d5ee84fb9fd248e1da45a2,
+        type: 3}
+      propertyPath: thisLevel
+      value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744323882404720635, guid: 139ceac896d5ee84fb9fd248e1da45a2,
+        type: 3}
+      propertyPath: mainMenu
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744323882404720635, guid: 139ceac896d5ee84fb9fd248e1da45a2,
+        type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
+    - target: {fileID: 4744323882404720635, guid: 139ceac896d5ee84fb9fd248e1da45a2,
+        type: 3}
+      propertyPath: gameStatusUI
+      value: 
+      objectReference: {fileID: 155373799030701409, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+    - target: {fileID: 4744323882404720635, guid: 139ceac896d5ee84fb9fd248e1da45a2,
+        type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 4341144863756086189, guid: d1a6f96cae206b74bb1e40d51bc3344a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 139ceac896d5ee84fb9fd248e1da45a2, type: 3}
 --- !u!114 &4744323882427362725 stripped

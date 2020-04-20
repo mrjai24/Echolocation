@@ -198,4 +198,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5651b4e61af362040943e3915f1c3b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSound: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
+  gameStatusUI: {fileID: 0}
+  loseScreen: {fileID: 0}
   thisLevel: 
+  mainMenu: Main Menu

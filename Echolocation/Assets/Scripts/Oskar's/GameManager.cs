@@ -25,13 +25,17 @@ public class GameManager : MonoBehaviour
     public void LoadData()
     {
         SaveData data = SaveManager.LoadData();
-        currentLevel = data.currentLevel;
-        nextLevel = data.nextLevel;
-        soundVolume = data.soundVolume;
-        fullScreen = data.fullScreen;
-        screenWidth = data.screenWidth;
-        screenHeight = data.screenHeight;
-        screenRefreshRate = data.screenRefreshRate;
+        if(data !=null)
+        {
+            currentLevel = data.currentLevel;
+            nextLevel = data.nextLevel;
+            soundVolume = data.soundVolume;
+            fullScreen = data.fullScreen;
+            screenWidth = data.screenWidth;
+            screenHeight = data.screenHeight;
+            screenRefreshRate = data.screenRefreshRate;
+        }
     }
+
 
 }

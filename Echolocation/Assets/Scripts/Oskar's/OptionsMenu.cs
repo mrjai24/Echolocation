@@ -8,10 +8,16 @@ public class OptionsMenu : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public Dropdown resolutionDropdown;
+    public Slider volumeSlider;
+
+    GameManager manager;
 
     Resolution[] resolutions;
     void Start()
     {
+        manager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+       
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -33,6 +39,7 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(reolutionsList);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        volumeSlider.value = manager.soundVolume;
     }
 
 
@@ -53,4 +60,21 @@ public class OptionsMenu : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode);
 
     }
+
+    public void saveOptions()
+    {
+
+        float value;
+        audioMixer.GetFloat("volume", out value);
+        manager.soundVolume = value;
+        manager.screenWidth = Screen.currentResolution.width;
+        manager.screenHeight = Screen.currentResolution.height;
+        manager.fullScreen = Screen.fullScreen;
+
+        manager.SaveData();
+
+
+
+    }
+
 }

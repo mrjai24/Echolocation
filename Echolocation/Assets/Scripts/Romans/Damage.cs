@@ -16,7 +16,7 @@ public class Damage : MonoBehaviour
     [SerializeField]
     private string thisLevel;
     [SerializeField]
-    private string mainMenu;
+    private string mainMenu = "Main Menu";
 
     public void Resume()
     {
@@ -34,9 +34,13 @@ public class Damage : MonoBehaviour
         isGamePaused = true;
     }
 
+
     private void Start()
     {
         thisLevel = SceneManager.GetActiveScene().name;
+        GameObject gui = GameObject.Find("GUI");
+        gameStatusUI = gui.transform.Find("GameStatusUI").gameObject;
+        loseScreen = gui.transform.Find("LoseScreen").gameObject;
     }
     private void OnTriggerEnter2D(Collider2D col)
     {

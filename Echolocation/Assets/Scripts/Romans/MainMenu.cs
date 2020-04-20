@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -16,6 +17,30 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private string shoeMenu;
 
+    [SerializeField]
+    private GameObject continueButton;
+
+    GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        gameManager.LoadData();
+        string level = gameManager.nextLevel;
+
+        if (level.Length == 0)
+        {
+            continueButton.SetActive(false);
+        }
+        else
+        {
+            continueButton.SetActive(true);
+            savedLevel = level;
+        }
+    }
+
+
+
     public void ContinueGame()
     {
         SceneManager.LoadScene(savedLevel);
@@ -23,6 +48,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        gameManager.nextLevel = "";
+        gameManager.SaveData();
         SceneManager.LoadScene(firstLevel);
     }
 
@@ -33,6 +60,7 @@ public class MainMenu : MonoBehaviour
 
     public void OpenOptions()
     {
+        gameManager.LoadData();
         SceneManager.LoadScene(options);
     }
 

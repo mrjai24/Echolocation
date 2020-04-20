@@ -17,8 +17,19 @@ public class MoveScenes : MonoBehaviour
     [SerializeField]
     private string mainMenu;
 
+    GameManager gameManager;
+
+
+
     public AudioClip WinSound;
 
+
+    private void Start()
+    {
+        GameObject gui = GameObject.Find("GUI");
+        gameStatusUI = gui.transform.Find("GameStatusUI").gameObject;
+        winScreen = gui.transform.Find("WinScreen").gameObject;
+    }
     public void Resume()
     {
         winScreen.SetActive(false);
@@ -29,6 +40,9 @@ public class MoveScenes : MonoBehaviour
 
     private void Pause()
     {
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.nextLevel = nextLevel;
+        gameManager.SaveData();
         winScreen.SetActive(true);
         gameStatusUI.SetActive(false);
         Time.timeScale = 0f; // Stop time in game
