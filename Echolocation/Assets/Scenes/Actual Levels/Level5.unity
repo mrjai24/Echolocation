@@ -311,8 +311,35 @@ PrefabInstance:
       propertyPath: nextLevel
       value: Level6
       objectReference: {fileID: 0}
+    - target: {fileID: 3263664156924071930, guid: 2fa79ec8d65fbd840a65e5556e118389,
+        type: 3}
+      propertyPath: mainMenu
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3263664156924071930, guid: 2fa79ec8d65fbd840a65e5556e118389,
+        type: 3}
+      propertyPath: gameStatusUI
+      value: 
+      objectReference: {fileID: 409081662}
+    - target: {fileID: 3263664156924071930, guid: 2fa79ec8d65fbd840a65e5556e118389,
+        type: 3}
+      propertyPath: winScreen
+      value: 
+      objectReference: {fileID: 409081661}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fa79ec8d65fbd840a65e5556e118389, type: 3}
+--- !u!114 &342972103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3263664156924071930, guid: 2fa79ec8d65fbd840a65e5556e118389,
+    type: 3}
+  m_PrefabInstance: {fileID: 342972102}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a421967f652e6d6428f76d2d9e8f7c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &409081659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -435,8 +462,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 3.5999756
       objectReference: {fileID: 0}
+    - target: {fileID: 3905301139790502647, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342972103}
+    - target: {fileID: 3905301139790502647, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905301141183306065, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 342972103}
+    - target: {fileID: 3905301141183306065, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: nextLevelButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f2bfa985ee84f74a975a067ebc72fcc, type: 3}
+--- !u!1 &409081660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8261661695412012418, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 409081659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &409081661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3905301141246888684, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 409081659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &409081662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9077499295591321573, guid: 9f2bfa985ee84f74a975a067ebc72fcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 409081659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &516315987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4152,26 @@ PrefabInstance:
         type: 3}
       propertyPath: thisLevel
       value: Level5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cbc29283b1b45924e8f03cbcef8f5e20, type: 3}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: gameStatusUI
+      value: 
+      objectReference: {fileID: 409081662}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: loseScreen
+      value: 
+      objectReference: {fileID: 409081660}
+    - target: {fileID: 4378863381894230672, guid: 8b2f1031c80216c409905b69f0d564fa,
+        type: 3}
+      propertyPath: mainMenu
+      value: Main Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b2f1031c80216c409905b69f0d564fa, type: 3}
