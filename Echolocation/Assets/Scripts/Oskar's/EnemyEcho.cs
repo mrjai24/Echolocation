@@ -11,17 +11,10 @@ public class EnemyEcho : MonoBehaviour
     [SerializeField]
     private float iceVariation = 1f;
 
-
-
     public List<GameObject> lines = new List<GameObject>();
-
     public List<LineRenderer> lineRenderers;
-
     public bool shootLines = false;
-
     public Material mudMaterial;
-
-
 
     private Vector3 position;
     private Vector3 vectDirection;
@@ -31,9 +24,6 @@ public class EnemyEcho : MonoBehaviour
     private string currentGroundType;
     private GameObject enemy;
     private int stepCount;
-
-
-
 
     void Start()
     {

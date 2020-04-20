@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Class for handling SaveData
 [System.Serializable]
 public class SaveData
 {
@@ -12,8 +14,6 @@ public class SaveData
     public int screenWidth;
     public int screenHeight;
     public int screenRefreshRate;
-    //public int currentShoe;
-    //public bool[] unlockedShoes;
 
     public SaveData (GameManager gm)
     {
@@ -24,8 +24,6 @@ public class SaveData
         screenWidth = gm.screenWidth;
         screenHeight = gm.screenHeight;
         screenRefreshRate = gm.screenRefreshRate;
-        //currentShoe = gm.currentShoe;
-        //unlockedShoes = gm.unlockedShoes;
     }
 
 }

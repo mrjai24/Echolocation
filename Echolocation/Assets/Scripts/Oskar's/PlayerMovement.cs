@@ -16,24 +16,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject footstepHorizontal;
 
-
-
     Vector2 movementVect;
-
     public float movementDelay = 1f;
     public float stepLength = 10f;
     public string movementDirection;
-
     public LayerMask allGroundTypes;
     public string currentGroundType = "Normal";
     public int steps = 0;
-
     public bool isMoving = false;
+
     private bool finishedStep = true;
     private Vector2 stepPosition;
-
-
-    private bool touchingWater = false;
 
     private void Start()
     {
@@ -43,16 +36,12 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-
         movementVect.y = Input.GetAxisRaw("Vertical");
         movementVect.x = Input.GetAxisRaw("Horizontal");
-
         animator.SetFloat("Speed", movementVect.sqrMagnitude);
 
         if (Mathf.Abs(movementVect.x) > 0 && Mathf.Abs(movementVect.y) > 0)
             movementVect.x = 0;
-
-
 
         if (movementVect.x > 0)
             movementDirection = "right";
@@ -63,8 +52,6 @@ public class PlayerMovement : MonoBehaviour
         if (movementVect.y < 0)
             movementDirection = "down";
 
-
-
         if (movementVect.sqrMagnitude > 0)
             isMoving = true;
         else
@@ -74,27 +61,20 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(MakeStep());
     }
 
-    //void FixedUpdate()
-    //{
-        
-
-    //}
-
-
-
     IEnumerator MakeStep()
     {
-       
         steps++;
         finishedStep = false;
         stepPosition = (Vector2) transform.position + movementVect * stepLength;
         currentGroundType = GetGroundType(stepPosition);
+
         if(movementDirection == "left" || movementDirection == "right")
             Instantiate(footstepHorizontal, stepPosition, Quaternion.identity);
         else if(movementDirection == "up" || movementDirection == "down")
             Instantiate(footstepVertical, stepPosition, Quaternion.identity);
+
         rb.MovePosition(stepPosition);
-            yield return new WaitForSeconds(movementDelay);
+        yield return new WaitForSeconds(movementDelay);
         finishedStep = true;
     }
 
@@ -119,10 +99,10 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Walking on Mud");
                 return "Mud";
             }
-            else return "Normal";
+            else 
+                return "Normal";
         }
         else
             return "Normal";
-        
     }
 }

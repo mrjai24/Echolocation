@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//Script that shows colliders
+//Used to show water position in Scene
 [ExecuteInEditMode]
 public class DrawGizmos : MonoBehaviour
 {
@@ -43,9 +46,6 @@ public class DrawGizmos : MonoBehaviour
 
             Mesh mesh = new Mesh();
 
-            float width = boxCollider.size.x * transform.lossyScale.x;
-            float height = boxCollider.size.y * transform.lossyScale.y;
-
             Vector3[] vertices = new Vector3[4];
 
             vertices[0] = Points[2];
@@ -76,7 +76,7 @@ public class DrawGizmos : MonoBehaviour
 
             mesh.normals = normals;
 
-             Vector2[] uv = new Vector2[4];
+            Vector2[] uv = new Vector2[4];
 
             uv[0] = new Vector2(0, 0);
             uv[1] = new Vector2(1, 0);

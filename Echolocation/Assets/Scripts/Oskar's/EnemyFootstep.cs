@@ -10,13 +10,10 @@ public class EnemyFootstep : MonoBehaviour
     public float waterMovementDelay = 0.45f;
     public float iceMovementDelay = 0.4f;
     public string currentGroundType;
-
     public float fadingTime = 0.3f;
     private string movementDirection;
-
-    private SpriteRenderer sRenderer;
+    private SpriteRenderer spriteRenderer;
     private Transform myTransform;
-
     public List<AudioClip> stepSounds;
 
 
@@ -24,7 +21,7 @@ public class EnemyFootstep : MonoBehaviour
     {
         enemy = GameObject.Find("Zombie");
         currentGroundType = enemy.GetComponent<EnemyAI>().currentGroundType;
-        sRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         myTransform = GetComponent<Transform>();
         movementDirection = enemy.GetComponent<EnemyAI>().movementDirection;
 
@@ -71,10 +68,7 @@ public class EnemyFootstep : MonoBehaviour
             enemy.GetComponent<EnemyAI>().movementDelay = 1.2f;
             SoundManager.PlaySound(stepSounds[Random.Range(15, 19)]);
         }
-
-
         StartCoroutine(Fade());
-
     }
 
     IEnumerator Fade()
@@ -82,7 +76,7 @@ public class EnemyFootstep : MonoBehaviour
         float fadeChunk = fadingTime / 10;
         for (int i = 10; i > 0; i -= 1)
         {
-            sRenderer.material.color = new Color(1f, 1f, 1f, (float)i / 10);
+            spriteRenderer.material.color = new Color(1f, 1f, 1f, (float)i / 10);
             yield return new WaitForSeconds(fadeChunk);
         }
         Destroy(this.gameObject);

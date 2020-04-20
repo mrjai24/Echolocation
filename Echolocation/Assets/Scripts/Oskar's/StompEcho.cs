@@ -11,14 +11,9 @@ public class StompEcho : MonoBehaviour
     [SerializeField]
     private float iceVariation = 1f;
 
-
-
     public List<GameObject> lines = new List<GameObject>();
-
     public List<LineRenderer> lineRenderers;
-
     public bool shootLines = false;
-
     public Material mudMaterial;
     public GameObject waterWave;
 
@@ -80,10 +75,7 @@ public class StompEcho : MonoBehaviour
 
         }
         Destroy(this.gameObject,3f);
-
     }
-
-
 
     void DrawNormalLasers()
     {

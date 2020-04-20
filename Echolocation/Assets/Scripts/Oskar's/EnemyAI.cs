@@ -4,9 +4,6 @@ using UnityEngine;
 using Pathfinding;
 public class EnemyAI : MonoBehaviour
 {
-
-   
-
     [SerializeField]
     private GameObject footstepVertical;
 
@@ -14,18 +11,16 @@ public class EnemyAI : MonoBehaviour
     private GameObject footstepHorizontal;
 
     public Vector3 target;
-
     public int steps=0;
     public float speed; 
     public float nextWaypointDistance = 3f;
     public float movementDelay = 1f;
     public float stepLength = 10f;
     public string movementDirection;
-
     public LayerMask allGroundTypes;
     public string currentGroundType = "Normal";
-
     public bool isMoving = false;
+
     private bool finishedStep = true;
     private Vector2 stepPosition;
 
@@ -37,15 +32,13 @@ public class EnemyAI : MonoBehaviour
 
     Seeker seeker;
     Rigidbody2D rb;
-    // Start is called before the first frame update
+
     void Start()
     {
         target = transform.position;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, .5f);
-        
-        
     }
 
     public void UpdatePath()
@@ -54,8 +47,6 @@ public class EnemyAI : MonoBehaviour
             seeker.StartPath(rb.position, target, OnPathComplete);
     }
 
-
-
     void OnPathComplete(Path p)
     {
         if (!p.error)
@@ -63,7 +54,6 @@ public class EnemyAI : MonoBehaviour
         currentWaypoint = 0;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (path == null)
@@ -80,8 +70,6 @@ public class EnemyAI : MonoBehaviour
         }
 
         direction = ((Vector2)path.vectorPath[1] - rb.position).normalized;
-
-
      
         if (direction.x > 0.5)
             movementDirection = "right";
@@ -93,7 +81,6 @@ public class EnemyAI : MonoBehaviour
             movementDirection = "down";
 
 
-
         if (direction.sqrMagnitude > 0)
             isMoving = true;
         else
@@ -101,17 +88,6 @@ public class EnemyAI : MonoBehaviour
 
         if (isMoving && finishedStep)
             StartCoroutine(MakeStep());
-
-
-        //float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
-
-
-
-
-        //if(distance < nextWaypointDistance)
-        //{
-        //    currentWaypoint++;
-        //}
     }
     IEnumerator MakeStep()
     {
@@ -127,7 +103,6 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(movementDelay);
         finishedStep = true;
     }
-
     string GetGroundType(Vector2 stepPosition)
     {
         Collider2D hitCollider = Physics2D.OverlapCircle(stepPosition, 0.2f, allGroundTypes);
@@ -150,7 +125,6 @@ public class EnemyAI : MonoBehaviour
         }
         else
             return "Normal";
-
     }
 
 }

@@ -7,7 +7,8 @@ public class MenuSounds : MonoBehaviour
     public AudioClip hooverSound;
     public AudioClip pressedSound;
 
-    public void PlayHooverSound() {
+    public void PlayHooverSound() 
+    {
         SoundManager.PlaySound(hooverSound);
     }
     public void PlayPressedSound()

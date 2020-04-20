@@ -6,8 +6,8 @@ public class Stomp : MonoBehaviour
 {
     private bool playerIsMoving;
     private bool isStomping = false;
+
     public float stompWaitTime = 3f;
-    
     public GameObject stomp;
 
      void LateUpdate()

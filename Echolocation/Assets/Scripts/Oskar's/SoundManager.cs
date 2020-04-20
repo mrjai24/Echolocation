@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script managing playing sound effect from every script
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public static List <AudioClip> audioClips;
     public static AudioSource audioSrc;
     void Start()
     {

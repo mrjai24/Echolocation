@@ -11,17 +11,10 @@ public class FootEcho : MonoBehaviour
     [SerializeField]
     private float iceVariation = 1f;
 
-
-
     public List<GameObject> lines = new List<GameObject>();
-
     public List<LineRenderer> lineRenderers;
-
     public bool shootLines = false;
-
     public Material mudMaterial;
-
-
 
     private Vector3 position;
     private Vector3 vectDirection;
@@ -33,9 +26,6 @@ public class FootEcho : MonoBehaviour
     private GameObject player;
     private int stepCount;
     private GameObject doorObject;
-
-
-
 
     void Start()
     {
@@ -91,7 +81,7 @@ public class FootEcho : MonoBehaviour
 
             while (canShoot)
             {
-                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance,layerMask);
+                RaycastHit2D hit = Physics2D.Raycast(position, vectDirection, lineMaxDistance, layerMask);
                 if (hit)
                 {
                     reflectionCount++;
@@ -99,13 +89,18 @@ public class FootEcho : MonoBehaviour
                     vectDirection = Vector3.Reflect(vectDirection, hit.normal);
                     position = (Vector2)vectDirection.normalized + hit.point;
                     currentLine.SetPosition(reflectionCount - 1, hit.point);
-                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Door")){
+
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Door"))
+                    {
                         doorhit = true;
                         doorObject = hit.transform.gameObject;
                     }
-                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy")){
+
+                    if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+                    {
                         hit.transform.gameObject.GetComponent<EnemyAI>().target = new Vector3(player.transform.position.x, player.transform.position.y, 0f);
                     }
+
                     if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Trap"))
                     {
                         trapLineIndex.Add(i);
@@ -198,7 +193,6 @@ public class FootEcho : MonoBehaviour
                     {
                         Vector2 midPos = new Vector2(prevPos.x + (float)j / iceDivideCount * (endPos.x - prevPos.x), prevPos.y + (float)j / iceDivideCount * (endPos.y - prevPos.y));
                         Vector2 midPosLocal = new Vector2(prevPosLocal.x + (float)j / iceDivideCount * (endPosLocal.x - prevPosLocal.x), prevPosLocal.y + (float)j / iceDivideCount * (endPosLocal.y - prevPosLocal.y));
-
                         Vector2 perpVect = iceVariation * Vector2.Perpendicular(midPosLocal.normalized);
                         Vector2 offsetVect;
 
@@ -210,7 +204,6 @@ public class FootEcho : MonoBehaviour
                         reflectionCount++;
                         currentLine.positionCount = reflectionCount;
                         currentLine.SetPosition(reflectionCount - 1, offsetVect);
-
                     }
                     canShoot = false;
                 }
@@ -273,7 +266,6 @@ public class FootEcho : MonoBehaviour
     IEnumerator FadeLines()
     {
         float alpha = 1.0f;
-
         Gradient gradient = new Gradient();
         Gradient trapGradient = new Gradient();
         Color iceColor = new Color(0, 179, 239);
@@ -330,7 +322,6 @@ public class FootEcho : MonoBehaviour
                     yield return new WaitForSeconds(0.02f);
                     alpha -= 0.3f;
                 }
-
             }
         }
         else if (currentGroundType == "Mud")
@@ -349,9 +340,7 @@ public class FootEcho : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
                 alpha -= 0.1f;
             }
-
         }
-
     }
     public static Vector2 RadianToVector2(float radian)
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public string currentLevel;
@@ -11,13 +12,9 @@ public class GameManager : MonoBehaviour
     public int screenWidth;
     public int screenHeight;
     public int screenRefreshRate;
-    //public int currentShoe;
-    //public bool[] unlockedShoes;
-
 
     private void Start()
     {
-        //Debug.Log(Application.persistentDataPath + "/save.sav");
         LoadData();
     }
     public void SaveData()
@@ -35,8 +32,6 @@ public class GameManager : MonoBehaviour
         screenWidth = data.screenWidth;
         screenHeight = data.screenHeight;
         screenRefreshRate = data.screenRefreshRate;
-        //currentShoe = data.currentShoe;
-        //unlockedShoes = data.unlockedShoes;
     }
 
 }

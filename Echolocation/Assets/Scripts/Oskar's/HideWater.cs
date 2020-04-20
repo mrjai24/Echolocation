@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Script eliminates the water bug by activating only the puddle on which the player entered
+
 public class HideWater : MonoBehaviour
 {
 
