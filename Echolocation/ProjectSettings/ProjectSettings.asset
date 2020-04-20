@@ -605,10 +605,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: b6755764-89e1-44bb-8b6e-18cea5631e43
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Echolocation
+  organizationId: toxycoz
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
